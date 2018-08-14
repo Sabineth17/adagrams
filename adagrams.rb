@@ -9,8 +9,14 @@ def draw_letters
   return hand
 end
 
-puts draw_letters
-# puts
-# hand = letters.rand(10)
-# puts
-# print hand
+print player_1_hand = draw_letters.join
+puts
+
+puts "From these letters please spell your word "
+input = gets.chomp.upcase.strip
+
+def uses_available_letters?(input,letters_in_hand)
+  letters_in_hand.include?(input)
+end
+
+puts uses_available_letters?(input,player_1_hand)
