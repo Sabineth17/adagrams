@@ -9,14 +9,15 @@ def draw_letters
 end
 
 
-# puts
-
-# puts "From these letters please spell your word "
-# input
-# = gets.chomp.upcase.strip
-
-# def uses_available_letters?(input,letters_in_hand)
-#   letters_in_hand.match(input)
-# end
-#
-# puts uses_available_letters?(input,player_1_hand)
+def uses_available_letters?(input,letters_in_hand)
+  input.split("").each do | letter |
+    if !letters_in_hand.include?(letter)
+      return false
+    elsif letters_in_hand.include?(letter)
+      letters_in_hand.length.times do |index|
+        letters_in_hand.delete_at(index)
+      return true
+      end
+    end
+  end
+end
