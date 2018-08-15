@@ -9,7 +9,7 @@ def draw_letters
   return hand
 end
 
-player_1_hand = draw_letters.join
+
 # puts
 
 # puts "From these letters please spell your word "
