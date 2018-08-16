@@ -11,16 +11,19 @@ def draw_letters
 end
 
 
+
+
+
 def uses_available_letters?(input,letters_in_hand)
   # binding.pry
   input.split("").each do |letter|
     if letters_in_hand.include?(letter)
       # binding.pry
       letters_in_hand.each_with_index do |hand_letter,index|
-       if hand_letter == letter
+        if hand_letter == letter
           letters_in_hand.delete_at(index)
-        break
-       end
+          break
+        end
 
         # index.delete_at(index)
       end
@@ -31,4 +34,35 @@ def uses_available_letters?(input,letters_in_hand)
   end
   # binding.pry
   return true
+end
+
+
+
+def score_word(word)
+  # Find the base price for this drink
+  score = 0
+  word.split("").each do |letter|
+
+    case letter
+    when "A", "E", "I", "O", "U", "L", "N", "R", "S", "T"
+      score += 1
+    when "D", "G"
+      score += 2
+    when "B", "C", "M", "P"
+      score += 3
+    when "F","H","V","W","Y"
+      score += 4
+    when "K"
+      score += 5
+    when "J","X"
+      score += 8
+    when "Q","Z"
+      score += 10
+    else
+      puts "Invalid word score: #{word}"
+    end
+  end
+  # binding.pry
+  return score
+
 end
