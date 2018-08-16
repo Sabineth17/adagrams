@@ -39,11 +39,15 @@ end
 
 
 def score_word(word)
-  # Find the base price for this drink
-  score = 0
+score = 0
+
+if word.length >= 7
+  score = 8
+end
+
   word.split("").each do |letter|
 
-    case letter
+    case letter.upcase
     when "A", "E", "I", "O", "U", "L", "N", "R", "S", "T"
       score += 1
     when "D", "G"
