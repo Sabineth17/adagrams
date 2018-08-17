@@ -79,21 +79,20 @@ def highest_score_from(words)
   words.each do |word|
     score = score_word(word)
 
-    if score > high[:score]
-      high[:score] = score_word(word)
-      high[:word] = word
-    elsif score == high[:score] && word.length == 10
+    if score == high[:score] && word.length == 10
       # words.each do |a,b|
       # if a.size < b.size
       high[:score] = score_word(word)
       high[:word] = word
-
-    elsif score =~ high[:score] && word.length < high[:word].length
+    elsif score == high[:score] && word.length < high[:word].length
       high[:score] = score_word(word)
       high[:word] = word
       # elsif a.size == 10 || b.size == 10
       #   high[:score] = score_word(word)
       #   high[:word] = word
+    elsif score > high[:score]
+        high[:score] = score_word(word)
+        high[:word] = word
     end
   end
 # binding.pry
