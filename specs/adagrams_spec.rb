@@ -51,10 +51,6 @@ describe 'Adagrams' do
     end
 
 
-
-
-
-
     it 'returns false word contains letters not in the drawn letters' do
       drawn_letters = ['D', 'O', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X']
       test_word = 'DOG'

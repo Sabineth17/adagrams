@@ -74,23 +74,25 @@ end
 def highest_score_from(words)
   # convert from array of string into array of hashes
 
-  high = {score: 0, word: ""}
+  high = {score: 0, word: "A"}
 
   words.each do |word|
     score = score_word(word)
 
-    if score == high[:score] && word.length == 10
+    # if score == high[:score] && word.length == 10
+    if word.length == 10
       # words.each do |a,b|
       # if a.size < b.size
       high[:score] = score_word(word)
       high[:word] = word
+      break
     elsif score == high[:score] && word.length < high[:word].length
       high[:score] = score_word(word)
       high[:word] = word
       # elsif a.size == 10 || b.size == 10
       #   high[:score] = score_word(word)
       #   high[:word] = word
-    elsif score > high[:score]
+    elsif score > high[:score] && word.length < 10
         high[:score] = score_word(word)
         high[:word] = word
     end
